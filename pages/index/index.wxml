@@ -18,9 +18,9 @@
   <view class='p_botton'>
     <button type="primary" bindtap='defLogins' size="default"> 登陆 </button>
   </view>
-
+  
   <view class='p_botton'>
-    <button type="primary" bindtap='wxLogins' size="default"> 微信登陆 </button>
+    <button type="primary" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo='wxLogins' size="default"> 微信登陆 </button>
   </view>
   
 </view>
