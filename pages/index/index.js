@@ -1,43 +1,28 @@
 var Crypto = require('cryptojs/cryptojs.js').Crypto;
+const app = getApp()
 Page({
   data: {
     msg:""
   },
-  onLoad: function () {
-   
-  },
+  
   onGotUserInfo : function(e){
     console.log(e);
   },
   wxLogins : function(e){
-    //console.log(e);
+    let sessionKey = app.globalData.userCode;
     let detail = e.detail;
-    let dateDe = this.decryptData(detail.encryptedData,detail.iv,"");
-    console.log(dateDe);
-    // wx.login({
-    //   success: function (res) {
-    //     if (res.code) {
-    //       let code = res.code;
-    //       console.log(code)
-    //       wx.request({
-    //         url: 'https://192.168.1.89:8080/happyTree/Wxlogin', 
-    //         data: {
-    //           code: code
-    //         },
-    //         method:'POST',
-    //         success: function (res) {
-    //           console.log(res)
-    //         }
-    //       })
-          
-    //     } else {
-    //       console.log('登录失败！' + res.errMsg)
-    //     }
-    //   }
-    // });
-  },
-  defLogins : function(e){
-    console.log(e);
+    let dateDe = this.decryptData(detail.encryptedData, detail.iv, sessionKey);
+    wx.request({
+      url: app.globalData.basePath + 'openIdlogin',
+      data: dateDe,
+      header: { 'content-type': 'application/x-www-form-urlencoded' },
+      method: 'POST',
+      success: res => {
+        console.log(res)
+        
+      }
+    })
+    
   },
   decryptData:function(appDate,iv,sessionKey){
     var encryptedData = Crypto.util.base64ToBytes(appDate)
