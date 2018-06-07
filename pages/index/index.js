@@ -5,6 +5,10 @@ Page({
     msg:""
   },
   
+  defLogins : function(){
+    // app.utils.wxpost();
+    
+  },
   onGotUserInfo : function(e){
     console.log(e);
   },
@@ -12,17 +16,13 @@ Page({
     let sessionKey = app.globalData.userCode;
     let detail = e.detail;
     let dateDe = this.decryptData(detail.encryptedData, detail.iv, sessionKey);
-    wx.request({
-      url: app.globalData.basePath + 'openIdlogin',
-      data: dateDe,
-      header: { 'content-type': 'application/x-www-form-urlencoded' },
-      method: 'POST',
-      success: res => {
-        console.log(res)
-        
+    app.utils.wxpost('openIdlogin',dateDe,res =>{
+      if(res.code == '10000'){
+        wx.switchTab({
+          url:'../../pages/home/home'
+        })
       }
     })
-    
   },
   decryptData:function(appDate,iv,sessionKey){
     var encryptedData = Crypto.util.base64ToBytes(appDate)

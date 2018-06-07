@@ -1,3 +1,4 @@
+const app = getApp()
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -13,7 +14,28 @@ const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
+const basePath = 'https://happytree.soukys.com/';
+
+function wxpost(url,data,success){
+  wx.request({
+    url: basePath + url,
+    data: data,
+    header: { 'content-type': 'application/x-www-form-urlencoded' },
+    method: 'POST',
+    success: res => {
+      success(res.data)
+    },
+    fail : res => {
+      wx.showToast({
+        title: '网络错误',
+        image:'../img/error.png',
+        duration: 2000
+      })
+    }
+  })
+}
 
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  wxpost : wxpost
 }
