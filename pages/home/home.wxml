@@ -1,2 +1,12 @@
 <!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<swiper class="home_swiper" indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+  indicator-active-color="{{activeColor}}">
+  <block wx:for="{{imgUrls}}" wx:key="{{imgUrls}}">
+    <swiper-item>
+      <navigator url="/pages/clock/clock" open-type="switchTab" hover-class="other-navigator-hover">
+        <image mode='aspectFill' src="{{item}}" class="slide-image" width="100%"/>
+      </navigator>  
+    </swiper-item>
+  </block>
+</swiper>

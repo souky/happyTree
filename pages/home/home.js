@@ -2,7 +2,16 @@
 Page({
 
   data: {
-  
+    imgUrls: [
+      '../../img/home/swiper_1.jpg',
+      '../../img/home/swiper_2.jpg',
+      '../../img/home/swiper_3.jpg'
+    ],
+    indicatorDots: true,
+    autoplay: true,
+    interval: 5000,
+    duration: 1000,
+    activeColor:'#ffffff'
   },
 
   /**
@@ -10,7 +19,9 @@ Page({
    */
   onLoad: function (options) {
     wx.showTabBar();
-    
+    wx.setNavigationBarTitle({
+      title: '乐享树屋'
+    })
   },
 
   
