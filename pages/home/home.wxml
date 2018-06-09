@@ -1,12 +1,20 @@
 <!--pages/home/home.wxml-->
-<swiper class="home_swiper" indicator-dots="{{indicatorDots}}"
-  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
-  indicator-active-color="{{activeColor}}">
-  <block wx:for="{{imgUrls}}" wx:key="{{imgUrls}}">
-    <swiper-item>
-      <navigator url="/pages/clock/clock" open-type="switchTab" hover-class="other-navigator-hover">
-        <image mode='aspectFill' src="{{item}}" class="slide-image" width="100%"/>
-      </navigator>  
-    </swiper-item>
-  </block>
-</swiper>
+<view>
+  <swiper class="home_swiper" indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+    indicator-active-color="{{activeColor}}">
+    <block wx:for="{{imgUrls}}" wx:key="{{imgUrls}}">
+      <swiper-item>
+        <navigator url="/pages/clock/clock" open-type="switchTab" hover-class="other-navigator-hover">
+          <image mode='aspectFill' src="{{item}}" class="slide-image" width="100%"/>
+        </navigator>  
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class='home_news'>
+    <view class='home_news_items'>
+      撒大苏打实打实
+    </view>
+  </view>
+</view>

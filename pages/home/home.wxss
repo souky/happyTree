@@ -7,3 +7,6 @@ image{
   width: 100%;
   height:480rpx;
 }
+.home_news{
+  margin-top: 20rpx;
+}

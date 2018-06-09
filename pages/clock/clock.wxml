@@ -1,2 +1,20 @@
 <!--pages/clock/clock.wxml-->
-<text>pages/clock/clock.wxml</text>
+<view class="clock">
+  <view class='title'> 训练打卡 </view>
+  <view class="clock_date">
+    <view class='clock_date_week'>
+      <view class='week_items' wx:for="{{weekItems}}" wx:key="{{weekItems}}" wx:for-item="e">
+        {{e}}
+      </view>
+    </view>
+    <view class='clock_date_day'>
+      <view class='days_items {{e.css}}' wx:for="{{dayItems}}" wx:key="{{dayItems}}" wx:for-item="e">
+        {{e.days}}
+        <view class='check_img' wx:if="{{e.check}}">
+          <image src='../../img/clock/smile.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

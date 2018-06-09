@@ -8,7 +8,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.94",
+	"libVersion": "2.0.9",
 	"appid": "wxe68bcc25fb45666e",
 	"projectname": "happyTree",
 	"isGameTourist": false,

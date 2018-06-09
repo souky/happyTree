@@ -7,7 +7,9 @@ Page({
   
   defLogins : function(){
     // app.utils.wxpost();
-    
+    wx.switchTab({
+      url: '../../pages/home/home'
+    })
   },
   onGotUserInfo : function(e){
     console.log(e);

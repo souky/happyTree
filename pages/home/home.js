@@ -19,9 +19,7 @@ Page({
    */
   onLoad: function (options) {
     wx.showTabBar();
-    wx.setNavigationBarTitle({
-      title: '乐享树屋'
-    })
+   
   },
 
   

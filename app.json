@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/clock/clock",
+    "pages/home/home",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/home/home",
-    "pages/clock/clock",
     "pages/mine/mine"
   ],
   "tabBar": {
@@ -31,7 +31,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "乐享树屋",
     "navigationBarTextStyle": "black"
   }
 }

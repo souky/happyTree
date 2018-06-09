@@ -1,1 +1,53 @@
 /* pages/clock/clock.wxss */
+.clock .title{
+  width: 100%;
+  height:60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  
+}
+.clock_date{
+  background: #FFCCCC;
+  border-radius: 5px;
+  width:98%;
+  margin:auto;
+  padding:20rpx 0;
+  color:#f7f7f7;
+}
+.clock_date .clock_date_week{
+  display: flex;
+  margin: 20rpx auto auto auto;
+  width:98%;
+  
+}
+.clock_date .clock_date_week .week_items{
+  width: 14%;
+  text-align:center;
+  font-size: 32rpx;
+}
+.clock_date .clock_date_day{
+  display: flex;
+  margin: 20rpx auto auto auto;
+  width:98%;
+  flex-wrap: wrap;
+ 
+}
+.clock_date .clock_date_day .days_items{
+  width: 14%;
+  text-align:center;
+  height: 60rpx;
+  line-height: 60rpx;
+  position: relative;
+}
+.clock_date .clock_date_day .days_items .check_img{
+  width: 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  position: absolute;
+  right: 0px;
+  top:0px;
+}
+.clock_date .clock_date_day .days_items .check_img image{
+  width: 30rpx;
+  height: 30rpx;
+}
