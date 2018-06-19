@@ -16,5 +16,8 @@
       </view>
     </view>
   </view>
-
+</view>
+<view class="func">
+  <view class='pun_btn'>打卡</view>
+  <view class='ask_leave'>请假</view>
 </view>
