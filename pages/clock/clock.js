@@ -1,4 +1,5 @@
 // pages/clock/clock.js
+const app = getApp()
 Page({
 
   /**
@@ -6,7 +7,11 @@ Page({
    */
   data: {
     weekItems: ['日', '一', '二', '三', '四', '五', '六'],
-    dayItems: [{ "days": 27, "css": "forbid", "check": false, "date": 1527350400000 }, { "days": 28, "css": "forbid", "check": false, "date": 1527436800000 }, { "days": 29, "css": "forbid", "check": false, "date": 1527523200000 }, { "days": 30, "css": "forbid", "check": false, "date": 1527609600000 }, { "days": 31, "css": "forbid", "check": false, "date": 1527696000000 }, { "days": 1, "check": false, "date": 1527782400000 }, { "days": 2, "check": false, "date": 1527868800000 }, { "days": 3, "check": false, "date": 1527955200000 }, { "days": 4, "check": false, "date": 1528041600000 }, { "days": 5, "check": false, "date": 1528128000000 }, { "days": 6, "check": false, "date": 1528214400000 }, { "days": 7, "check": false, "date": 1528300800000 }, { "days": 8, "check": false, "date": 1528387200000 }, { "days": 9, "check": false, "date": 1528473600000 }, { "days": 10, "check": false, "date": 1528560000000 }, { "days": 11, "check": false, "date": 1528646400000 }, { "days": 12, "check": false, "date": 1528732800000 }, { "days": 13, "check": false, "date": 1528819200000 }, { "days": 14, "check": false, "date": 1528905600000 }, { "days": 15, "check": false, "date": 1528992000000 }, { "days": 16, "check": false, "date": 1529078400000 }, { "days": 17, "check": false, "date": 1529164800000 }, { "days": 18, "check": false, "date": 1529251200000 }, { "days": 19, "css": "active", "check": false, "date": 1529337600000 }, { "days": 20, "check": false, "date": 1529424000000 }, { "days": 21, "check": false, "date": 1529510400000 }, { "days": 22, "check": false, "date": 1529596800000 }, { "days": 23, "check": false, "date": 1529683200000 }, { "days": 24, "check": false, "date": 1529769600000 }, { "days": 25, "check": false, "date": 1529856000000 }, { "days": 26, "check": false, "date": 1529942400000 }, { "days": 27, "check": false, "date": 1530028800000 }, { "days": 28, "check": false, "date": 1530115200000 }, { "days": 29, "check": false, "date": 1530201600000 }, { "days": 30, "check": false, "date": 1530288000000 }]
+    month:'',
+    dayItems: [],
+    modalStyle:false,
+    imgSrc:'../../img/clock/choiceImg.png',
+    
   },
 
   /**
@@ -15,24 +20,84 @@ Page({
   onLoad: function (options) {
    //日历
    //this.initDate();
+    
   },
   initDate : function(){
-    let days = [];
-    let date = new Date();
-    let dats = date.getDay();
-    date.setDate((date.getDate() - dats));
-    let dayItemsNew = [];
-    for (let i = 0; i < 7; i++) {
-      let obj = new Object();
-      obj['week'] = days[i];
-      obj['days'] = date.getDate();
-      date.setDate(date.getDate() + 1);
-      dayItemsNew.push(obj);
-    }
-    this.setData({
-      dayItems: dayItemsNew
+    let dates = new Date();
+    let months = dates.getMonth() + 1;
+    
+    //获取日历
+    app.utils.wxpost('punchclock/getPunchClockDate', {}, res => {
+      if (res.code == '10000') {
+        this.setData({
+          dayItems: res.result
+        })
+      }
     })
-  }
 
+    this.setData({
+      month: months + '月'
+    })
+  },
+  punClock:function(event){
+    this.setData({
+      modalStyle:true
+    })
+  },
+  choiceImg:function(){
+    wx.chooseImage({
+      count: 1, // 默认9
+      sizeType: [ 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: res => {
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        this.setData({
+          imgSrc:res.tempFilePaths[0]
+        })
+      }
+    })
+  },
+  punchClock:function(e){
+    let path = this.data.imgSrc;
+    if (path == '../../img/clock/choiceImg.png') {
+      wx.showToast({
+        title: '请选择图片',
+        image: '../../img/error.png',
+        duration: 1000
+      })
+      return;
+    }
+    let textA = e.detail.value.textA;
+    if(textA == ''){
+      wx.showToast({
+        title: '打卡信息必填',
+        image: '../../img/error.png',
+        duration: 1000
+      })
+      return;
+    }
+    let data = {text:textA}
+    app.utils.wxUpload('punchclock/punch', data, path,res =>{
+      console.log(res);
+    })
+  },
+  closeModal:function(){
+    this.setData({
+      modalStyle: false
+    })
+  },
+  ask_leave: function () {
+    wx.showModal({
+      title: '提示',
+      content: '请假操作不可撤回,请三思',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
 
 })

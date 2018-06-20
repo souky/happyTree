@@ -7,12 +7,16 @@
   
 }
 .clock_date{
-  background: #FFCCCC;
+  background: #FFC173	;
   border-radius: 5px;
   width:98%;
   margin:auto;
   padding:20rpx 0;
   color:#f7f7f7;
+}
+.clock_date .month{
+  text-align: center;
+  font-size: 42rpx;
 }
 .clock_date .clock_date_week{
   display: flex;
@@ -40,7 +44,7 @@
   position: relative;
 }
 .clock_date .clock_date_day .days_items.active{
-  color:#1AAD19;
+  color:#FF8E00;
 }
 .clock_date .clock_date_day .days_items.forbid{
   color:#c7c7c7;
@@ -85,4 +89,32 @@
   top:160rpx;
   right:20rpx;
   text-align: center;
+  color:#FF5300;
+}
+
+.punch .choice_img{
+  width:350rpx;
+  height: 350rpx;
+  overflow: hidden;
+  margin:20rpx auto;
+}
+.punch .choice_img .img_title{
+  font-size: 24rpx;
+  color:#666;
+  height: 40rpx;
+  line-height: 40rpx
+}
+.punch .choice_img image{
+  width: 300rpx;
+  height: 300rpx;
+}
+.punch .text textarea{
+  width: 95%;
+  margin: 20rpx auto;
+  height:300rpx;
+  border: 1px #c7c7c7 solid;
+  border-radius: 4px;
+  text-align: left;
+  padding: 10rpx;
+  font-size: 28rpx;
 }

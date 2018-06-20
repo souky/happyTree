@@ -19,22 +19,26 @@ App({
       borderStyle: 'black'
     })
     //微信登陆
-    // wx.login({
-    //   success: res => {
-    //     if (res.code) {
-    //       let code = res.code;
-    //       let data = {code:code};
-    //       util.wxpost('Wxlogin', data, res =>{
-    //        this.globalData.userCode = res.result.session_key;
-    //       })
-    //     } else {
-    //       console.log('登录失败！' + res.errMsg)
-    //     }
-    //   }
-    // });
+    wx.login({
+      success: res => {
+        if (res.code) {
+          let code = res.code;
+          let data = {code:code};
+          util.wxpost('Wxlogin', data, res =>{
+           this.globalData.userCode = res.result.session_key;
+           this.globalData.openid = res.result.openid;
+           this.globalData.sessionId = res.result.session_id;
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    });
   },
   globalData: {
-    userCode: null
+    userCode: null,
+    openid:null,
+    sessionId:null
   },
   utils:util
 })

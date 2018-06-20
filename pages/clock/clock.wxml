@@ -2,6 +2,7 @@
 <view class="clock">
   <view class='title'> 训练打卡 </view>
   <view class="clock_date">
+    <view class='month'> {{month}} </view>
     <view class='clock_date_week'>
       <view class='week_items' wx:for="{{weekItems}}" wx:key="{{weekItems}}" wx:for-item="e">
         {{e}}
@@ -18,6 +19,28 @@
   </view>
 </view>
 <view class="func">
-  <view class='pun_btn'>打卡</view>
-  <view class='ask_leave'>请假</view>
+  <view class='pun_btn' bindtap="punClock">打卡</view>
+  <view class='ask_leave' bindtap="ask_leave">请假</view>
 </view>
+<view class="wxapp-modal punch"  wx:if="{{modalStyle}}">
+  <view class="content">
+    <view class='header'>打卡</view>
+    <form bindsubmit="punchClock">
+      <view class='body'>
+        <view class='choice_img' bindtap='choiceImg'>
+          <image src='{{imgSrc}}'></image>
+          <view class='img_title'>选择图片</view>
+        </view>
+        <view class='text'>
+          <textarea maxlength='200' name="textA" placeholder="请输入打卡信息(200字以内)"></textarea>
+        </view>
+      </view>
+      <view class='footer'>
+        <button class='cancel'>取消</button>
+        <button class='confirm' formType="submit">确定</button>
+      </view>
+    </form>
+  </view>
+  <view class="mask" bindtap="closeModal"></view>
+</view>
+
