@@ -10,7 +10,7 @@
     </view>
     <view class='clock_date_day'>
       <view class='days_items {{e.css}}' wx:for="{{dayItems}}" wx:key="{{dayItems}}" wx:for-item="e">
-        {{e.days}}
+        <view class='text'>{{e.days}}</view>
         <view class='check_img' wx:if="{{e.check}}">
           <image src='../../img/clock/smile.png'></image>
         </view>
@@ -18,10 +18,21 @@
     </view>
   </view>
 </view>
+
+<view class='targers'>
+  <view class='title'>本周目标</view>
+  <view class='items'>
+    <view class='date'>2018-6-17 to 2018-6-23</view>
+    <view class='info'>完成打卡</view>
+  </view>
+</view>
+
+
 <view class="func">
   <view class='pun_btn' bindtap="punClock">打卡</view>
   <view class='ask_leave' bindtap="ask_leave">请假</view>
 </view>
+
 <view class="wxapp-modal punch"  wx:if="{{modalStyle}}">
   <view class="content">
     <view class='header'>打卡</view>
@@ -36,11 +47,29 @@
         </view>
       </view>
       <view class='footer'>
-        <button class='cancel'>取消</button>
+        <button class='cancel' bindtap='closeModal'>取消</button>
         <button class='confirm' formType="submit">确定</button>
       </view>
     </form>
   </view>
   <view class="mask" bindtap="closeModal"></view>
+</view>
+
+<view class="wxapp-modal punch"  wx:if="{{modalStyle_l}}">
+  <view class="content">
+    <view class='header'>请假</view>
+    <form bindsubmit="askLeave">
+      <view class='body'>
+        <view class='text'>
+          <textarea maxlength='200' name="leaveInfo" placeholder="请输入请假理由(200字以内)"></textarea>
+        </view>
+      </view>
+      <view class='footer'>
+        <button class='cancel' bindtap='closeModal_l'>取消</button>
+        <button class='confirm' formType="submit">确定</button>
+      </view>
+    </form>
+  </view>
+  <view class="mask" bindtap="closeModal_l"></view>
 </view>
 

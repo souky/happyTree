@@ -4,15 +4,16 @@
   height:60rpx;
   line-height: 60rpx;
   text-align: center;
-  
+  color:#666;
 }
 .clock_date{
-  background: #FFC173	;
+  background: #fe8a35	;
   border-radius: 5px;
   width:98%;
   margin:auto;
   padding:20rpx 0;
   color:#f7f7f7;
+  min-height: 400rpx;
 }
 .clock_date .month{
   text-align: center;
@@ -43,10 +44,14 @@
   line-height: 60rpx;
   position: relative;
 }
-.clock_date .clock_date_day .days_items.active{
-  color:#FF8E00;
+.clock_date .clock_date_day .days_items .text{
+  font-size:30rpx;
 }
-.clock_date .clock_date_day .days_items.forbid{
+.clock_date .clock_date_day .days_items.active .text{
+  line-height: 53rpx;
+  font-size:44rpx;
+}
+.clock_date .clock_date_day .days_items.forbid .text{
   color:#c7c7c7;
 }
 .clock_date .clock_date_day .days_items .check_img{
@@ -74,8 +79,8 @@
   height: 200rpx;
   line-height: 200rpx;
   border-radius: 50%;
-  color:#ffffff;
-  background: #1AAD19;
+  color:#666;
+  background: #f3e6d6;
   font-size: 40rpx;
   text-align: center;
   margin: auto;
@@ -117,4 +122,36 @@
   text-align: left;
   padding: 10rpx;
   font-size: 28rpx;
+}
+
+.targers .title{
+  width: 90%;
+  height:60rpx;
+  line-height: 60rpx;
+  color: #666;
+  text-align: center;
+  margin:10rpx auto;
+  /*border-bottom:1px #c7c7c7 solid;*/
+}
+.targers .items{
+  width: 95%;
+  margin: 10rpx auto;
+  height:120rpx;
+  color:#fff;
+  background: #fe8a35;
+  border-radius: 4px;
+  
+}
+.targers .items .date{
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size:14px;
+  padding-right:20rpx;
+  text-align: right;
+}
+.targers .items .info{
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size:14px;
+  padding-left:20rpx;
 }

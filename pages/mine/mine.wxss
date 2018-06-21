@@ -1,1 +1,21 @@
 /* pages/mine/mine.wxss */
+.mine_head {
+  width: 100%;
+}
+.mine_head .hear_img{
+  width:128rpx;
+  height: 128rpx;
+  margin:10% auto 20rpx auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.mine_head .hear_img image{
+  width:128rpx;
+  height: 128rpx;
+}
+.mine_head .hear_name{
+  text-align: center;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #666;
+}

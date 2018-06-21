@@ -14,7 +14,7 @@ App({
     //wx.hideTabBar();
     wx.setTabBarStyle({
       color: '#929292',
-      selectedColor: '#1AAD19',
+      selectedColor: '#fe8a35',
       backgroundColor: '#ffffff',
       borderStyle: 'black'
     })

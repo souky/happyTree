@@ -1,19 +1,22 @@
 // pages/mine/mine.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    user:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '乐享树屋'
+    app.utils.wxpost("user/getLoginUser",null,res =>{
+      this.setData({
+        user:res.result
+      })
     })
   },
 

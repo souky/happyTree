@@ -10,6 +10,7 @@ Page({
     month:'',
     dayItems: [],
     modalStyle:false,
+    modalStyle_l:false,
     imgSrc:'../../img/clock/choiceImg.png',
     
   },
@@ -18,8 +19,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   //日历
-   //this.initDate();
+    //日历
+    this.initDate();
     
   },
   initDate : function(){
@@ -40,17 +41,23 @@ Page({
     })
   },
   punClock:function(event){
-    this.setData({
-      modalStyle:true
+    app.utils.wxpost('punchclock/checkPunch', {}, res => {
+      if (res.code == '10000') {
+        this.setData({
+          modalStyle: true
+        })
+      }else{
+        app.utils.showInfo(res.message);
+      }
     })
+    
   },
   choiceImg:function(){
     wx.chooseImage({
-      count: 1, // 默认9
-      sizeType: [ 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      count: 1, 
+      sizeType: [ 'compressed'], 
+      sourceType: ['album', 'camera'], 
       success: res => {
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         this.setData({
           imgSrc:res.tempFilePaths[0]
         })
@@ -60,25 +67,23 @@ Page({
   punchClock:function(e){
     let path = this.data.imgSrc;
     if (path == '../../img/clock/choiceImg.png') {
-      wx.showToast({
-        title: '请选择图片',
-        image: '../../img/error.png',
-        duration: 1000
-      })
+      app.utils.showError('请选择图片');
       return;
     }
     let textA = e.detail.value.textA;
     if(textA == ''){
-      wx.showToast({
-        title: '打卡信息必填',
-        image: '../../img/error.png',
-        duration: 1000
-      })
+      app.utils.showError('打卡信息必填');
       return;
     }
     let data = {text:textA}
     app.utils.wxUpload('punchclock/punch', data, path,res =>{
-      console.log(res);
+      if (res.code == '10000') {
+        app.utils.showSuccess('打卡成功');
+        this.closeModal();
+      } else {
+        app.utils.showError(res.message);
+        this.closeModal();
+      }
     })
   },
   closeModal:function(){
@@ -86,18 +91,42 @@ Page({
       modalStyle: false
     })
   },
+  closeModal_l: function () {
+    this.setData({
+      modalStyle_l: false
+    })
+  },
   ask_leave: function () {
     wx.showModal({
       title: '提示',
       content: '请假操作不可撤回,请三思',
-      success: function (res) {
+      success: res => {
         if (res.confirm) {
-          console.log('用户点击确定')
+          this.setData({
+            modalStyle_l: true
+          })
         } else if (res.cancel) {
-          console.log('用户点击取消')
+          this.closeModal_l();
         }
       }
     })
   },
+  askLeave:function(e){
+    let leaveInfo = e.detail.value.leaveInfo;
+    if (leaveInfo == '') {
+      app.utils.showError('请假理由必填');
+      return;
+    }
+    let data = { leaveInfo: leaveInfo }
+    app.utils.wxpost('punchclock/punchLeave', data, res => {
+      if(res.code == '10000'){
+        app.utils.showSuccess('请假成功');
+        this.closeModal_l();
+      }else{
+        app.utils.showError(res.message);
+        this.closeModal_l();
+      }
+    })
+  }
 
 })

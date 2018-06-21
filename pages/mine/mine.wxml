@@ -1,2 +1,11 @@
 <!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view>
+  <view class="mine_head">
+    <view class='hear_img'>
+      <image src='{{user.userImg}}'></image>
+    </view>
+    <view class='hear_name'>
+      {{user.userName}}
+    </view>
+  </view>
+</view>
