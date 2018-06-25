@@ -1,11 +1,20 @@
 <!--pages/mine/mine.wxml-->
-<view>
-  <view class="mine_head">
-    <view class='hear_img'>
-      <image src='{{user.userImg}}'></image>
-    </view>
-    <view class='hear_name'>
-      {{user.userName}}
-    </view>
+
+<view class="mine_head">
+  <view class='hear_img'>
+    <image src='{{user.userImg}}'></image>
+  </view>
+  <view class='hear_name'>
+    {{user.userName}}
   </view>
 </view>
+
+<view class='pop_menu'>
+  <navigator url="/pages/record/record" open-type="navigate" hover-class="other-navigator-hover">
+    <view class='items punch'>打卡记录</view>
+  </navigator>
+  <view class='items account'>我的账号</view>
+  <view class='items target'>目标记录</view>
+  <view class='items friends'>我的伙伴</view>
+</view>
+

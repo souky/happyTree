@@ -7,7 +7,7 @@
   color:#666;
 }
 .clock_date{
-  background: #fe8a35	;
+  background: #FFB487;
   border-radius: 5px;
   width:98%;
   margin:auto;
@@ -52,7 +52,7 @@
   font-size:44rpx;
 }
 .clock_date .clock_date_day .days_items.forbid .text{
-  color:#c7c7c7;
+  color:#999;
 }
 .clock_date .clock_date_day .days_items .check_img{
   width: 30rpx;
@@ -138,7 +138,7 @@
   margin: 10rpx auto;
   height:120rpx;
   color:#fff;
-  background: #fe8a35;
+  background: #FFB487;
   border-radius: 4px;
   
 }

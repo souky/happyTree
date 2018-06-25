@@ -14,7 +14,7 @@
   width: 90%;
   margin: 20rpx auto;
   height: 80rpx;
-  border-bottom: 1px #1AAD19 solid;
+  border-bottom: 1px #FFB487 solid;
 }
 .section .login_input{
   width: 100%;

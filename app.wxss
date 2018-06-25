@@ -1,5 +1,14 @@
 /**app.wxss**/
-
+page{
+  height: 100%;
+}
+.normal_font{
+  font-size: 28rpx;
+  color: #666;
+}
+.ac{
+  text-align: center;
+}
 .container {
   height: 100%;
   display: flex;
@@ -66,7 +75,7 @@
 }
 .wxapp-modal .content .footer .confirm:active{
  color: #ffffff;
- background: #1AAD19;
+ background: #FFB487;
 }
 .wxapp-modal .content .footer .cancel:active{
  color: #ffffff;
@@ -81,7 +90,7 @@
  
 }
 .wxapp-modal .content .footer .confirm{
- color: #1AAD19;
+ color: #FFB487;
 }
 .wxapp-modal .mask{
  width: 100%;

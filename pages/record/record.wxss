@@ -1,0 +1,106 @@
+.record_tab{
+  width: 400rpx;
+  height: 60rpx;
+  margin: auto;
+  display: flex;
+  border-radius: 5px;
+  border:1px #8FDBFF solid;
+  position: relative;
+  overflow: hidden;
+}
+.record_tab .tab_items{
+  width: 200rpx;
+  height:60rpx;
+  line-height:60rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color:#8FDBFF;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+}
+.record_tab .tab_items:nth-child(2){
+  left: 200rpx;
+}
+.record_tab .tab_items.active{
+  color:#fff;
+}
+.record_tab .back_g{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background: #8FDBFF;
+  width: 200rpx;
+  height: 60rpx;
+  z-index: 0;
+}
+
+.record_detils{
+  width:94%;
+  margin:20rpx auto auto auto;
+  height: calc(100% - 100rpx);
+}
+.record_detils .items{
+  width: 100%;
+  margin-top:20rpx;
+  display: flex;
+  border-bottom: 1px #8FDBFF solid;
+}
+.record_detils .items .imgs{
+  width: 180rpx;
+  height: 180rpx;
+  margin-top:10rpx;
+  margin-right:20rpx;
+}
+.record_detils .items .imgs image{
+  width: 180rpx;
+  height: 180rpx;
+}
+.record_detils .items .pun_info{
+  width: 100%;
+}
+.record_detils .items .text.info{
+  height: 120rpx;
+  line-height: 40rpx;
+  margin:10rpx 0;
+  text-indent: 30rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:3;
+}
+.record_detils .items .text.date{
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: right;
+}
+
+.bottom_func{
+  margin-top:20rpx;
+}
+.bottom_func .rload{
+  width: 50rpx;
+  height:50rpx;
+  margin:auto;
+  animation: loading 1.5s ease-in-out infinite;
+}
+.bottom_func .rload image{
+  width:50rpx;
+  height:50rpx;
+}
+.bottom_func .normal_font{
+  color:#c7c7c7;
+}
+
+
+@keyframes loading{
+  0% {
+    transform:rotate(0deg);
+  }
+  100% {
+    transform:rotate(360deg);
+  }
+}

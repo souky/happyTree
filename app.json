@@ -1,23 +1,24 @@
 {
   "pages": [
-    "pages/mine/mine",
     "pages/clock/clock",
+    "pages/record/record",
+    "pages/mine/mine",
+    
     "pages/home/home",
     "pages/index/index"
-    
   ],
   "tabBar": {
     "list": [
       {
         "pagePath": "pages/home/home",
-        "text":"首页",
+        "text": "首页",
         "iconPath": "img/bar/home.png",
         "selectedIconPath": "img/bar/home_select.png"
       },
       {
         "pagePath": "pages/clock/clock",
         "text": "打卡",
-        "iconPath":"img/bar/time.png",
+        "iconPath": "img/bar/time.png",
         "selectedIconPath": "img/bar/time_select.png"
       },
       {

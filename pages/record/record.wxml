@@ -1,0 +1,22 @@
+<view class='record_tab'>
+  <view bindtap='select_ask' data-select='0' class="tab_items {{catalogSelect == 0 ? 'active':''}}">签到</view>
+  <view bindtap='select_ask' data-select='1' class="tab_items {{catalogSelect == 1 ? 'active':''}}">请假</view>
+  <view class='back_g' animation="{{animationData}}"></view>
+</view>
+
+<scroll-view class='record_detils' scroll-y="{{scrolly}}" bindscrolltolower="refrush">
+  <view class='items' wx:for="{{punchList}}" wx:for-item="e" wx:key="{{e.id}}">
+    <view class='imgs'>
+      <image wx:if="{{e.isLeave == 0}}" src="{{e.imgBase}}" data-url='{{e.imgBase}}' bindtap='showImg'></image>
+      <image wx:if="{{e.isLeave == 1}}" src="../../img/record/leave.png"></image>
+    </view>
+    <view class='pun_info'>
+      <view class='text info normal_font' data-text='{{e.punchInfo}}' bindtap='showInfo'>{{e.punchInfo}}</view>
+      <view class='text date normal_font'>{{e.timeInfo}}</view>
+    </view>
+  </view>
+  
+  <view class='bottom_func'>
+    <view wx:if="{{showEnding}}" class='normal_font ac'>别看了,到底了</view>
+  </view>
+</scroll-view>
