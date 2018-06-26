@@ -79,6 +79,7 @@ Page({
     app.utils.wxUpload('punchclock/punch', data, path,res =>{
       if (res.code == '10000') {
         app.utils.showSuccess('打卡成功');
+        this.initDate();
         this.closeModal();
       } else {
         app.utils.showError(res.message);

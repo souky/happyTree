@@ -1,0 +1,159 @@
+.user_card {
+  width: 94%;
+  height: 360rpx;
+  border-radius: 10px;
+  margin: auto;
+  position: relative;
+  margin-bottom: 100rpx;
+}
+
+.user_card.man {
+  background: #8fdbff;
+}
+
+.user_card.women {
+  background: #ff90b6;
+}
+
+.user_card .top {
+  display: flex;
+}
+
+.user_card .img {
+  width: 160rpx;
+  height: 160rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  background: #fff;
+  overflow: hidden;
+}
+
+.user_card .img image {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.user_card .text {
+  width: 300rpx;
+  margin-left: 70rpx;
+}
+
+.user_card .text .items {
+  display: flex;
+  font-size: 32rpx;
+  color: #fff;
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-top: 20rpx;
+}
+
+.user_card .text .items .label {
+  width: 30%;
+  text-align: center;
+}
+
+.user_card .text .items .value {
+  width: 70%;
+  text-align: left;
+}
+
+.user_card .bottom {
+  position: absolute;
+  left: 0;
+  bottom: 10rpx;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+}
+
+.user_card .edit {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 20rpx;
+}
+
+.user_card .edit image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.editUser {
+  top: 15%;
+  color: #666;
+}
+
+.editUser .items {
+  display: flex;
+  font-size: 32rpx;
+  margin: 20rpx auto;
+}
+
+.editUser .items .text {
+  width: 20%;
+  text-align: center;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.editUser .items .section {
+  width: 70%;
+  height: 60rpx;
+  border-bottom: 1px #8fdbff solid;
+}
+
+.editUser .items .section .edit_input {
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 16px;
+}
+
+.editUser .confirm {
+  color: #8fdbff !important;
+}
+
+.editUser .confirm:active {
+  color: #fff !important;
+  background: #8fdbff !important;
+}
+
+.other_btn {
+  width: 94%;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: 20rpx auto;
+  background: #8bc34a;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.other_btn.button-hover {
+  background: #7cac45;
+}
+
+.other_btn image {
+  position: absolute;
+  width: 60rpx;
+  height: 60rpx;
+  right: 20rpx;
+  top: 20rpx;
+}
+
+.manager_btn {
+  width: 94%;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: 20rpx auto;
+  background: #FF8F8F;
+  color: #fff;
+  text-align: center;
+}
+.manager_btn.button-hover{
+  background:#DB7E7E;
+}

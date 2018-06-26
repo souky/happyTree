@@ -36,7 +36,7 @@ page{
   position: absolute;
   font-size:44rpx;
 }
-.pop_menu .items.punch{
+.pop_menu .items.record{
   width: 380rpx;
   height: 380rpx;
   line-height: 380rpx;

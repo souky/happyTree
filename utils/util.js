@@ -16,6 +16,12 @@ const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
+
+const validateTel = data =>{
+  let reg = /^(1[2-9])\d{9}$/;
+  return reg.test(data);
+}
+
 //const basePath = 'https://happytree.soukys.com/';
 const basePath = 'http://192.168.1.89:8080/happyTree/';
 
@@ -120,5 +126,6 @@ module.exports = {
   wxUpload: wxUpload,
   showSuccess: showSuccess,
   showError: showError,
-  showInfo: showInfo
+  showInfo: showInfo,
+  validateTel: validateTel
 }

@@ -1,0 +1,74 @@
+<view style='padding-top:20rpx'>
+  <view class='user_card {{user.sexs}}'>
+    <view class='top'>
+      <view class='img'>
+        <image src='{{user.userImg}}'></image>
+      </view>
+      <view class='text'>
+        <view class='items'>
+            <view class='label'>昵称 :</view>
+            <view class='value'>{{user.userName}}</view>
+        </view>
+        <view class='items'>
+            <view class='label'>姓名 :</view>
+            <view class='value'>{{user.realName}}</view>
+        </view>
+        <view class='items'>
+            <view class='label'>电话 :</view>
+            <view class='value'>{{user.userTel}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='bottom'>
+      <view class='date'>
+        {{user.dateInfo}}
+      </view>
+    </view>
+    <view class='edit' bindtap='openEdit'>
+      <image src='../../img/account/edit.png'></image>
+    </view>
+  </view>
+</view>
+
+<button class='other_btn' bindtap='chioceOrg'>
+{{user.orgName}}
+<image src='../../img/account/right.png'></image>
+</button>
+
+<button class='other_btn' open-type="getUserInfo" bindgetuserinfo="syncImg">同步微信头像</button>
+
+<button wx:if="{{isManager}}" class='manager_btn'>打卡群管理</button>
+
+<view class="wxapp-modal editUser"  wx:if="{{modalStyle}}">
+  <view class="content">
+    <view class='header'>修改信息</view>
+    <form bindsubmit="editUser">
+      <view class='body'>
+        <view class='items'>
+          <view class='text'>昵称 :</view>
+          <view class="section">
+            <input class='edit_input' value='{{user.userName}}' type='text' placeholder='填写昵称' name='userName'></input>
+          </view>
+        </view>
+        <view class='items'>
+          <view class='text'>姓名 :</view>
+          <view class="section">
+            <input class='edit_input' value='{{user.realName}}' type='text' placeholder='填写真实姓名' name='realName'></input>
+          </view>
+        </view>
+        <view class='items'>
+          <view class='text'>电话 :</view>
+          <view class="section">
+            <input class='edit_input' value='{{user.userTel}}' type='text' placeholder='填写电话' name='userTel'></input>
+          </view>
+        </view>
+      </view>
+      <view class='footer'>
+        <button class='cancel' bindtap='closeModal'>取消</button>
+        <button class='confirm' formType="submit">确定</button>
+      </view>
+    </form>
+  </view>
+  <view class="mask" bindtap="closeModal"></view>
+</view>
