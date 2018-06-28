@@ -1,13 +1,14 @@
 {
   "pages": [
-    "pages/target/target",
+    "pages/friends/friends",
     "pages/clock/clock",
     "pages/record/record",
     "pages/mine/mine",
     "pages/home/home",
     "pages/index/index",
     "pages/manager/manager",
-    "pages/account/account"
+    "pages/account/account",
+    "pages/target/target"
   ],
   "tabBar": {
     "list": [

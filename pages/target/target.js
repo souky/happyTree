@@ -156,7 +156,16 @@ Page({
       this.initData(pageNum, this.data.pageSize);
     }
   },
+  showInfo: function (e) {
+    let info = e.currentTarget.dataset.text;
+    wx.showModal({
+      title: '详细',
+      content: info,
+      showCancel: false,
+      confirmText: '关闭',
 
+    })
+  },
   closeModal: function () {
     this.setData({
       modalStyle: false
