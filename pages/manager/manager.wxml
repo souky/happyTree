@@ -1,0 +1,35 @@
+<view class='manager'>
+
+  
+  <button class='items add' bindtap='openAdd'>新增打卡群
+    <image src='../../img/manager/plus.png'></image>
+  </button>
+  
+  <button wx:for="{{orgList}}" wx:for-item="e" wx:key="{{e.id}}" class='items org'>
+    {{e.orgName}}({{e.memberCount}}人)
+    <image src='../../img/manager/setting.png'></image>
+  </button>
+  
+  
+</view>
+
+<view class="wxapp-modal add_org"  wx:if="{{modalStyle}}">
+  <view class="content">
+    <view class='header'>新增打卡群</view>
+    <form bindsubmit="addOrg">
+      <view class='body'>
+        <view class='items'>
+          <view class='text'>群名称 :</view>
+          <view class="section">
+            <input class='add_input' type='text' placeholder='填写群名称' name='orgName'></input>
+          </view>
+        </view>
+      </view>
+      <view class='footer'>
+        <button class='cancel' bindtap='closeModal'>取消</button>
+        <button class='confirm' formType="submit">确定</button>
+      </view>
+    </form>
+  </view>
+  <view class="mask" bindtap="closeModal"></view>
+</view>

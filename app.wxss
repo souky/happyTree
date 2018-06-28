@@ -1,6 +1,7 @@
 /**app.wxss**/
 page{
   height: 100%;
+  overflow: hidden;
 }
 .normal_font{
   font-size: 28rpx;

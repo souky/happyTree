@@ -6,10 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    date_info:'2018-07-12',
     user:null,
     modalStyle:false,
-    isManager:false
+    isManager:false,
+    orgList: []
   },
 
   /**
@@ -22,6 +22,12 @@ Page({
 
     //获取登陆对象
     this.getLoginUser();
+
+    app.utils.wxpost("org/queryOrgs", null, res => {
+      this.setData({
+        orgList: res.result
+      })
+    })
     
   },
   getLoginUser:function(){
@@ -66,8 +72,29 @@ Page({
     })
   },
   //组织选择
-  chioceOrg:function(){
-
+  chioceOrg:function(e){
+    let orgCode = this.data.orgList[e.detail.value].id;
+    let orgName = this.data.orgList[e.detail.value].orgName;
+    let data = {orgCode:orgCode};
+    app.utils.wxpost('user/updateUser', data, res => {
+      if (res.code == '10000') {
+        app.utils.showSuccess('打卡群已更改');
+        let user = this.data.user;
+        user.orgName = orgName;
+        this.setData({
+          user: user
+        })
+      } else {
+        app.utils.showError(res.message);
+        this.closeModal();
+      }
+    })
+  },
+  //管理机构
+  manager:function(){
+    wx.navigateTo({
+      url: '/pages/manager/manager',
+    })
   },
   //同步微信头像
   syncImg:function(e){

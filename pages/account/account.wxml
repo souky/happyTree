@@ -31,14 +31,17 @@
   </view>
 </view>
 
-<button class='other_btn' bindtap='chioceOrg'>
-{{user.orgName}}
-<image src='../../img/account/right.png'></image>
-</button>
+<picker bindchange="chioceOrg" value="{{index}}" range="{{orgList}}" range-key="orgName">
+  <button class='other_btn'>
+    {{user.orgName}}
+    <image src='../../img/account/right.png'></image>
+  </button>
+</picker>
 
 <button class='other_btn' open-type="getUserInfo" bindgetuserinfo="syncImg">同步微信头像</button>
 
-<button wx:if="{{isManager}}" class='manager_btn'>打卡群管理</button>
+<button wx:if="{{isManager}}" class='manager_btn' bindtap='manager'>打卡群管理</button>
+  
 
 <view class="wxapp-modal editUser"  wx:if="{{modalStyle}}">
   <view class="content">

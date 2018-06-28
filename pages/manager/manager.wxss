@@ -1,0 +1,73 @@
+.manager{
+  padding-top:20rpx;
+}
+
+.manager .items {
+  width: 94%;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: auto;
+  background: #8bc34a;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.manager .items.button-hover {
+  background: #7cac45;
+}
+
+.manager .items image {
+  position: absolute;
+  width: 60rpx;
+  height: 60rpx;
+  right: 20rpx;
+  top: 20rpx;
+}
+
+.manager .items.org{
+  margin-top:40rpx;
+  background: #FF8F8F;
+}
+.manager .items.org.button-hover {
+  background: #DB7E7E;
+}
+
+.add_org {
+  top: 15%;
+  color: #666;
+}
+
+.add_org .items {
+  display: flex;
+  font-size: 32rpx;
+  margin: 20rpx auto;
+}
+
+.add_org .items .text {
+  width: 20%;
+  text-align: center;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.add_org .section {
+  width: 70%;
+  height: 60rpx;
+  border-bottom: 1px #8bc34a solid;
+}
+
+.add_org .items .section .add_input {
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 16px;
+}
+
+.add_org .confirm {
+  color: #8bc34a !important;
+}
+
+.add_org .confirm:active {
+  color: #fff !important;
+  background: #8bc34a !important;
+}

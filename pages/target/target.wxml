@@ -1,0 +1,66 @@
+<view class='target'>
+  
+  <view class='info'>
+      <view wx:if="{{!showInfo}}" class='img' bindtap='addTarget'>
+        <image src="../../img/target/plus-circle.png"></image>
+      </view>
+      <view wx:else>
+        <view class='title'>{{target.date}}</view>
+        <view class='context'>{{target.message}}</view>
+        <view class='status'>进行中  {{target.rateProgress}}%</view>
+      </view>
+  </view>
+
+  <view class='history'>
+    <view class='title'>历史记录</view>
+    <scroll-view class='list' scroll-y="{{scrolly}}" bindscrolltolower="refrush">
+
+      <view class='items' wx:for="{{targetHistory}}" wx:for-item="e" wx:key="{{e.id}}">
+        <view class='context'>{{e.message}}</view>
+        <view class='bottom'>
+          <view class='date'>{{e.date}}</view>
+          <view class='status'>已结束({{e.rateProgress}}%)</view>
+        </view>
+      </view>
+
+      <view class='bottom_func'>
+        <view wx:if="{{showEnding}}" class='normal_font ac'>别看了,到底了</view>
+      </view>
+
+    </scroll-view>
+  </view>
+</view>
+
+
+<view class="wxapp-modal add_target"  wx:if="{{modalStyle}}">
+  <view class="content">
+    <view class='header'>新增目标</view>
+    <form bindsubmit="addTar">
+      <view class='body'>
+
+        <view class='items _date'>
+          <label>开始日期:</label>
+          <picker mode="date" start="{{startDate}}" bindchange="selectStart">
+            <view class='date_text'>{{startTime}}</view>
+          </picker>
+        </view>
+
+        <view class='items'>
+          <label>结束日期:</label>
+          <picker mode="date" start="{{startDate}}" bindchange="selectEnd">
+            <view class='date_text'>{{endTime}}</view>
+          </picker>
+        </view>
+
+        <view class='text'>
+          <textarea maxlength='60' name="message" placeholder="请输入目标信息(60字以内)"></textarea>
+        </view>
+      </view>
+      <view class='footer'>
+        <button class='cancel' bindtap='closeModal'>取消</button>
+        <button class='confirm' formType="submit">确定</button>
+      </view>
+    </form>
+  </view>
+  <view class="mask" bindtap="closeModal"></view>
+</view>
