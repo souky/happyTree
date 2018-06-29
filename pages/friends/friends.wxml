@@ -1,2 +1,25 @@
-<!--pages/friends/friends.wxml-->
-<text>pages/friends/friends.wxml</text>
+<view id='friends'>
+
+  <view class='fri_s'>
+
+    <view class='items' wx:for="{{userShow}}" wx:for-item="e" wx:key="{{e.id}}">
+      <view class='img'>
+        <image src='../../img/loading.png'></image>
+      </view>
+      <view class='names normal_font ac {{e.active}}'>{{e.id}}</view>
+    </view>
+
+    
+    <view class='items'>
+      <picker bindchange="bindPickerChange" range-key='id' range="{{uersList}}">
+        <view class='img'>
+          <image src='../../img/friends/plus.png'></image>
+        </view>
+        <view class='names normal_font ac'>更多</view>
+      </picker>
+    </view>
+    
+
+  </view>
+
+</view>
