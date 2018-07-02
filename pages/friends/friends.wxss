@@ -10,6 +10,11 @@
   flex-wrap:wrap;
   margin:auto;
 }
+#friends .fri_s .nofri{
+  width:100%;
+  height: 300rpx;
+  line-height: 300rpx;
+}
 #friends .fri_s .items{
   width: 14%;
   height: 110rpx;
@@ -18,6 +23,8 @@
 #friends .fri_s .items .img{
   width: 80rpx;
   height: 80rpx;
+  overflow: hidden;
+  border-radius: 50%;
   margin:auto;
 }
 #friends .fri_s .items .img image{
@@ -31,4 +38,128 @@
 }
 #friends .fri_s .items .names.active{
   color:#FFCE87;
+}
+
+#friends .select_tab{
+  width: 400rpx;
+  height: 60rpx;
+  margin:20rpx auto;
+  display: flex;
+  border-radius: 5px;
+  border:1px #FFCE87 solid;
+  position: relative;
+  overflow: hidden;
+}
+#friends .select_tab .tab_items{
+  width: 200rpx;
+  height:60rpx;
+  line-height:60rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color:#FFCE87;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+}
+#friends .select_tab .tab_items:nth-child(2){
+  left: 200rpx;
+}
+#friends .select_tab .tab_items.active{
+  color:#fff;
+}
+#friends .select_tab .back_g{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background: #FFCE87;
+  width: 200rpx;
+  height: 60rpx;
+  z-index: 0;
+}
+/* 打卡记录 */
+#friends .record_detils{
+  width:94%;
+  margin:auto;
+  height: calc(100vh - 440rpx);
+}
+#friends .record_detils .items{
+  width: 100%;
+  margin-top:20rpx;
+  display: flex;
+  border-bottom: 1px #FFCE87 solid;
+}
+#friends .record_detils .items .imgs{
+  width: 180rpx;
+  height: 180rpx;
+  margin-top:10rpx;
+  margin-right:20rpx;
+}
+#friends .record_detils .items .imgs image{
+  width: 180rpx;
+  height: 180rpx;
+}
+#friends .record_detils .items .pun_info{
+  width: 100%;
+}
+#friends .record_detils .items .text.info{
+  height: 120rpx;
+  line-height: 40rpx;
+  margin:10rpx 0;
+  text-indent: 30rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:3;
+}
+#friends .record_detils .items .text.date{
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: right;
+}
+/* 目标记录 */
+#friends .target{
+  width: 94%;
+  margin:auto;
+  height: calc(100vh - 440rpx);
+}
+#friends .target .items{
+  margin-bottom:20rpx;
+  border-bottom: 1rpx #FFCE87 solid;
+  font-size: 28rpx;
+  color:#666;
+}
+#friends .target .items .context{
+  line-height: 40rpx;
+  height: 80rpx;
+  width: 100%;
+  text-indent: 30rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+}
+#friends .target .items .bottom{
+  display: flex;
+  height: 40rpx;
+  line-height: 40rpx;
+  width: 98%;
+  margin:auto;
+}
+#friends .target .items .bottom .date{
+  width:70%;
+}
+#friends .target .items .bottom .status{
+   width:30%;
+   text-align: right;
+}
+
+/* 无记录 */
+#friends .showEndMessage{
+  margin-top:40rpx;
+  color:#c7c7c7;
 }

@@ -2,24 +2,59 @@
 
   <view class='fri_s'>
 
-    <view class='items' wx:for="{{userShow}}" wx:for-item="e" wx:key="{{e.id}}">
-      <view class='img'>
-        <image src='../../img/loading.png'></image>
+    <view class='items' wx:if="{{!noFriends}}" wx:for="{{userShow}}" wx:for-item="e" wx:key="{{e.id}}">
+      <view class='img' bindtap='tapFind' data-id='{{e.id}}'>
+        <image src='{{e.userImg}}'></image>
       </view>
-      <view class='names normal_font ac {{e.active}}'>{{e.id}}</view>
+      <view class='names normal_font ac {{e.active}}'>{{e.realName}}</view>
     </view>
 
     
-    <view class='items'>
-      <picker bindchange="bindPickerChange" range-key='id' range="{{uersList}}">
+    <view class='items' wx:if="{{showMore && !noFriends}}">
+      <picker bindchange="bindPickerChange" range-key='realName' range="{{uersList}}">
         <view class='img'>
           <image src='../../img/friends/plus.png'></image>
         </view>
         <view class='names normal_font ac'>更多</view>
       </picker>
     </view>
-    
+
+    <view wx:if="{{noFriends}}" class='ac normal_font nofri'>还没有小伙伴哦,快去添加打卡群吧！</view>
 
   </view>
+
+  <view class='select_tab'>
+    <view bindtap='select_ask' data-select='1' class="tab_items {{rAndT == 1 ? 'active':''}}">打卡记录</view>
+    <view bindtap='select_ask' data-select='2' class="tab_items {{rAndT == 2 ? 'active':''}}">目标记录</view>
+    <view class='back_g' animation="{{animationData}}"></view>
+  </view>
+
+  <view wx:if="{{showEndMessage}}" class='showEndMessage normal_font ac'>暂无记录</view>
+
+  <scroll-view class='record_detils' wx:if="{{rAndT == 1}}" scroll-y="{{srcollY}}">
+    <view class='items' wx:for="{{punchList}}" wx:for-item="e" wx:key="{{e.id}}">
+      <view class='imgs'>
+        <image wx:if="{{e.isLeave == 0}}" src="{{e.imgBase}}" data-url='{{e.imgBase}}' bindtap='showImg'></image>
+        <image wx:if="{{e.isLeave == 1}}" src="../../img/record/leave.png"></image>
+      </view>
+      <view class='pun_info'>
+        <view class='text info normal_font' data-text='{{e.punchInfo}}' bindtap='showInfo'>{{e.punchInfo}}</view>
+        <view class='text date normal_font'>{{e.timeInfo}}</view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <scroll-view class='target' scroll-y="{{srcollY}}" wx:if="{{rAndT == 2}}">
+
+    <view class='items' wx:for="{{targetHistory}}" wx:for-item="e" wx:key="{{e.id}}">
+      <view class='context' data-text='{{e.message}}' bindtap='showInfo'>{{e.message}}</view>
+      <view class='bottom'>
+        <view class='date'>{{e.date}}</view>
+        <view class='status' wx:if="{{e.status == 1}}">进行中({{e.rateProgress}}%)</view>
+        <view class='status' wx:if="{{e.status == 3}}">已结束({{e.rateProgress}}%)</view>
+      </view>
+    </view>
+
+  </scroll-view>
 
 </view>

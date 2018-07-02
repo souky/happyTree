@@ -14,7 +14,10 @@ App({
       selectedColor: '#fe8a35',
       backgroundColor: '#ffffff',
       borderStyle: 'black'
-    })
+    });
+    wx.showShareMenu({
+      withShareTicket: true
+    });
     //微信登陆
     wx.login({
       success: res => {
