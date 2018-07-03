@@ -1,5 +1,5 @@
 <view class='record_tab'>
-  <view bindtap='select_ask' data-select='0' class="tab_items {{catalogSelect == 0 ? 'active':''}}">签到</view>
+  <view bindtap='select_ask' data-select='0' class="tab_items {{catalogSelect == 0 ? 'active':''}}">打卡</view>
   <view bindtap='select_ask' data-select='1' class="tab_items {{catalogSelect == 1 ? 'active':''}}">请假</view>
   <view class='back_g' animation="{{animationData}}"></view>
 </view>

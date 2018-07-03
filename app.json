@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/friends/friends",
+    "pages/home/home",
     "pages/clock/clock",
     "pages/record/record",
     "pages/mine/mine",
-    "pages/home/home",
+    "pages/friends/friends",
     "pages/index/index",
     "pages/manager/manager",
     "pages/account/account",

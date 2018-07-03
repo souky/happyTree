@@ -19,11 +19,13 @@
   </view>
 </view>
 
-<view class='targers'>
+<view class='targers'> 
   <view class='title'>本周目标</view>
   <view class='items'>
-    <view class='date'>2018-6-17 to 2018-6-23</view>
-    <view class='info'>完成打卡</view>
+    <view wx:if="{{!showTarget}}" class='date'>{{targetNow.date}}</view>
+    <view wx:if="{{!showTarget}}" class='info'>{{targetNow.message}}</view>
+    <view wx:if="{{!showTarget}}" class='parss'>完成度: {{targetNow.rateProgress}}%</view>
+    <view wx:if="{{showTarget}}" class='normal_font ac'>暂无目标</view>
   </view>
 </view>
 

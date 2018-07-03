@@ -16,8 +16,11 @@
   <navigator url="/pages/account/account" open-type="navigate" hover-class="other-navigator-hover">
     <view class='items account'>我的账号</view>
   </navigator>
-  
-  <view class='items target'>目标记录</view>
-  <view class='items friends'>我的伙伴</view>
+  <navigator url="/pages/target/target" open-type="navigate" hover-class="other-navigator-hover">
+    <view class='items target'>目标记录</view>
+  </navigator>  
+  <navigator url="/pages/friends/friends" open-type="navigate" hover-class="other-navigator-hover">
+    <view class='items friends'>我的伙伴</view>
+  </navigator>
 </view>
 

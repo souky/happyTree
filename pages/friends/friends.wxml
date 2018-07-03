@@ -12,7 +12,7 @@
     
     <view class='items' wx:if="{{showMore && !noFriends}}">
       <picker bindchange="bindPickerChange" range-key='realName' range="{{uersList}}">
-        <view class='img'>
+        <view class='img'> 
           <image src='../../img/friends/plus.png'></image>
         </view>
         <view class='names normal_font ac'>更多</view>

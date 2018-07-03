@@ -111,7 +111,7 @@ Page({
     })
   },
   getTarget: function () {
-    app.utils.wxpost("targetinfo/queryTargetInfos", { id: this.data.selectId, pageNum: 1, pageSize: 0 }, res => {
+    app.utils.wxpost("targetinfo/queryOtherTargetInfos", { id: this.data.selectId, pageNum: 1, pageSize: 0 }, res => {
       if (res.result.list == undefined) {
         this.setData({
           showEndMessage: true

@@ -12,7 +12,8 @@ Page({
     modalStyle:false,
     modalStyle_l:false,
     imgSrc:'../../img/clock/choiceImg.png',
-    
+    targetNow:null,
+    showTarget:false,
   },
 
   /**
@@ -32,6 +33,21 @@ Page({
       if (res.code == '10000') {
         this.setData({
           dayItems: res.result
+        })
+      }
+    })
+    //获取目标
+    app.utils.wxpost('targetinfo/targetNow', {}, res => {
+      let res_ = res.result;
+      if (res_ != undefined) {
+        let dateS = app.utils.formatTime(new Date(res_.startTime)) + " to " + app.utils.formatTime(new Date(res_.endTime));
+        res.result.date = dateS;
+        this.setData({
+          targetNow: res.result,
+        })
+      }else{
+        this.setData({
+          showTarget:true
         })
       }
     })

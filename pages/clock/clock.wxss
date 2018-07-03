@@ -136,7 +136,7 @@
 .targers .items{
   width: 95%;
   margin: 10rpx auto;
-  height:120rpx;
+  height:180rpx;
   color:#fff;
   background: #FFB487;
   border-radius: 4px;
@@ -146,12 +146,31 @@
   height: 60rpx;
   line-height: 60rpx;
   font-size:14px;
-  padding-right:20rpx;
-  text-align: right;
+  padding-left:20rpx;
+  text-align: left;
 }
 .targers .items .info{
   height: 60rpx;
   line-height: 60rpx;
   font-size:14px;
   padding-left:20rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:1;
+}
+.targers .items .parss{
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size:14px;
+  padding-right:20rpx;
+  text-align: right;
+}
+.targers .items .normal_font{
+  height: 180rpx;
+  line-height: 180rpx;
+  font-size:14px;
+  color:#fff;
 }

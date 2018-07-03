@@ -12,9 +12,12 @@
     </block>
   </swiper>
 
-  <view class='home_news'>
-    <view class='home_news_items'>
-      撒大苏打实打实
+  <view class='last_week_rank'>
+    <view class='title'>上周打卡排行</view>
+    <view class='contents'>
+      <view class='items'></view>
+      <view class='items'></view>
+      <view class='items'></view>
     </view>
   </view>
 </view>
