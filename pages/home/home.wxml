@@ -15,9 +15,25 @@
   <view class='last_week_rank'>
     <view class='title'>上周打卡排行</view>
     <view class='contents'>
-      <view class='items'></view>
-      <view class='items'></view>
-      <view class='items'></view>
+
+      <view class='items' wx:for="{{rankList}}" wx:for-item="e" wx:key="{{e.id}}">
+        <view class='maskImg'>
+          <view class='img'>
+            <image wx:if="{{e.em}}" class='user' src='../../img/home/unknow.png'></image>
+            <image wx:else class='user' src='{{e.user.userImg}}'></image>
+          </view>
+          <image class='prices' src='{{e.pngs}}'></image>
+        </view>
+        <block wx:if="{{e.em}}">
+          <view class='normal_font ac empty'>空缺</view>
+        </block>
+        <block wx:else>
+          <view class='normal_font ac'>{{e.user.realName == ''?e.user.userName:e.user.realName}}</view>
+          <view class='normal_font ac'>签到天数: {{e.punchDays}}天</view>
+          <view class='normal_font ac'>目标完成度: {{e.rateProgress}}%</view>
+        </block>
+      </view>
+     
     </view>
   </view>
 </view>
