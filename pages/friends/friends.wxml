@@ -6,7 +6,7 @@
       <view class='img' bindtap='tapFind' data-id='{{e.id}}'>
         <image src='{{e.userImg}}'></image>
       </view>
-      <view class='names normal_font ac {{e.active}}'>{{e.realName}}</view>
+      <view class='names normal_font ac {{e.active}}'>{{e.user.realName == ''?e.user.userName:e.user.realName}}</view>
     </view>
 
     
@@ -27,7 +27,7 @@
     <view bindtap='select_ask' data-select='1' class="tab_items {{rAndT == 1 ? 'active':''}}">打卡记录</view>
     <view bindtap='select_ask' data-select='2' class="tab_items {{rAndT == 2 ? 'active':''}}">目标记录</view>
     <view class='back_g' animation="{{animationData}}"></view>
-  </view>
+</view>
 
   <view wx:if="{{showEndMessage}}" class='showEndMessage normal_font ac'>暂无记录</view>
 

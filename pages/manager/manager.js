@@ -55,6 +55,13 @@ Page({
       }
     })
   },
+  //show rank 
+  showRank:function(e){
+    let code = e.currentTarget.dataset.code;
+    wx.navigateTo({
+      url: '/pages/rank/rank?code=' + code
+    })
+  },
 
   closeModal: function () {
     this.setData({

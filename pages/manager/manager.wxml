@@ -5,7 +5,7 @@
     <image src='../../img/manager/plus.png'></image>
   </button>
   
-  <button wx:for="{{orgList}}" wx:for-item="e" wx:key="{{e.id}}" class='items org'>
+  <button wx:for="{{orgList}}" wx:for-item="e" wx:key="{{e.id}}" class='items org' data-code='{{e.id}}' bindtap='showRank'>
     {{e.orgName}}({{e.memberCount}}人)
     <image src='../../img/manager/setting.png'></image>
   </button>

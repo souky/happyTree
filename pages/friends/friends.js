@@ -37,6 +37,12 @@ Page({
           noFriends: true
         });
       }else{
+        let list = res.result;
+        for (let x in list){
+          if (list[x].realName == undefined || list[x].realName == ""){
+            list[x].realName = list[x].userName;
+          }
+        }
         this.setData({
           uersList: res.result
         });
