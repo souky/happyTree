@@ -1,4 +1,4 @@
-<view id="rank">
+<view id="rank" scroll-y>
   
   <view class='rank_query'>
     <picker class="times" mode="date" value="{{date}}" bindchange="bindDateChange">
@@ -15,12 +15,14 @@
     <view class='items normal_font' wx:for="{{rankList}}" wx:for-item="e" wx:key="{{e.id}}">
       <view class='rank_num'>{{e.rankNum}}.</view>
       <view class='rank_name' wx:if="{{e.user.realName == undefined}}">暂无</view>
-      <view class='rank_name' wx:else>{{e.user.realName != undefined?e.user.realName:e.user.userName}}</view>
+      <view class='rank_name' wx:else>{{e.user.realName != ''?e.user.realName:e.user.userName}}</view>
       <view class='rank_option'>
-        <view class='btns'>
-           <image src="../../img/rank/setting.png"></image>
-        </view>
-        <view class='btns'>
+        <picker range="{{userList}}" data-id='{{e.id}}' range-key="userName" bindchange="bindUserChange">
+          <view class='btns'>
+            <image src="../../img/rank/setting.png"></image>
+          </view>
+        </picker>
+        <view class='btns' data-id='{{e.id}}' bindtap='unbindUser'>
           <image src="../../img/rank/delete.png"></image>
         </view>
         
@@ -28,29 +30,27 @@
     </view>
   </view>
 
-  <view class='uesr_list'>
-    <view class='context'>
-      <progress percent="80" stroke-width="70" active activeColor="#8FDBFF" backgroundColor="rgba(143,219,255,0.6)"/>
+  <scroll-view class='uesr_list' scroll-y>
+    <view class='context' wx:for="{{userList}}" wx:for-item="e" wx:key="{{e.id}}">
+      <progress wx:if="{{e.userSex == 1}}" percent="{{e.rateProgress}}" stroke-width="70" active activeColor="#8FDBFF" backgroundColor="rgba(143,219,255,0.6)"/>
+      <progress wx:else percent="{{e.rateProgress}}" stroke-width="70" active activeColor="#FF90B6" backgroundColor="rgba(255,144,182,0.6)"/>
       <view class='items'>
         <view class='left_part'>
-          <image src='../../img/loading.png'></image>
+          <image src='{{e.userImg}}'></image>
         </view>
         <view class='center_part'>
-          <view class='user_name normal_font'>布朗斯基大王</view>
-          <view class='user_name normal_font'>孙嘉宁</view>
+          <view class='user_name normal_font'>{{e.userName}}</view>
+          <view class='user_name normal_font'>{{e.realName}}</view>
         </view>
         <view class='right_part'>
-          <view class='setting_rank'>
+          <view class='setting_rank' data-id="{{e.id}}" bindtap='showUserImg'>
             <image src='../../img/rank/down.png'></image>
-          </view>
-          <view class='show_img'>
-
           </view>
         </view>
       </view>
     </view>
     
   
-  </view>
+  </scroll-view>
 
 </view>

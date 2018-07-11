@@ -24,11 +24,11 @@ App({
         if (res.code) {
           let code = res.code;
           let data = {code:code};
-          // util.wxpost('Wxlogin', data, res =>{
-          //  this.globalData.userCode = res.result.session_key;
-          //  this.globalData.openid = res.result.openid;
-          //  this.globalData.sessionId = res.result.session_id;
-          // })
+          util.wxpost('Wxlogin', data, res =>{
+           this.globalData.userCode = res.result.session_key;
+           this.globalData.openid = res.result.openid;
+           this.globalData.sessionId = res.result.session_id;
+          })
         } else {
           console.log('登录失败！' + res.errMsg)
         }

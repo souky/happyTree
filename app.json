@@ -1,18 +1,15 @@
 {
   "pages": [
-
-    "pages/clock/clock",
+    "pages/index/index",
     "pages/rank/rank",
+    "pages/home/home",
+    "pages/clock/clock",
     "pages/manager/manager",
-    
     "pages/record/record",
     "pages/mine/mine",
     "pages/friends/friends",
-    "pages/index/index",
-    "pages/home/home",
     "pages/account/account",
     "pages/target/target"
-    
   ],
   "tabBar": {
     "list": [

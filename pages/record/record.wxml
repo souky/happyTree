@@ -5,6 +5,7 @@
 </view>
 
 <scroll-view class='record_detils' scroll-y="{{scrolly}}" bindscrolltolower="refrush">
+  <view wx:if="{{showEndMessage}}" class='showEndMessage normal_font ac'>暂无记录</view>
   <view class='items' wx:for="{{punchList}}" wx:for-item="e" wx:key="{{e.id}}">
     <view class='imgs'>
       <image wx:if="{{e.isLeave == 0}}" src="{{e.imgBase}}" data-url='{{e.imgBase}}' bindtap='showImg'></image>

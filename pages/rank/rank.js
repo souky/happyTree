@@ -9,7 +9,8 @@ Page({
     date:'',
     code:'',
     rankList:[],
-    showWarning:false
+    showWarning:false,
+    userList:[]
   },
 
   /**
@@ -33,19 +34,28 @@ Page({
     let rankTime = this.data.date;
     let orgCode = this.data.code;
     let data = { rankTime: rankTime, orgCode: orgCode};
+    this.inituser(data);
     app.utils.wxpost("punchrank/queryPunchRanks",data,res =>{
       let rankList = res.result;
       if(rankList.length == 0){
-         
         this.setData({
-          showWarning: true
+          showWarning: true,
+          rankList:[]
         })
       }else{
         this.setData({
-          rankList: rankList
+          rankList: rankList,
+          showWarning:false
         })
       }
-      
+    })
+  },
+  //query user
+  inituser:function(data){
+    app.utils.wxpost("user/queryUserWithTarger", data, res => {
+      this.setData({
+        userList: res.result
+      })
     })
   },
   //add rank
@@ -66,6 +76,54 @@ Page({
   bindDateChange:function(e){
     this.setData({
       date: e.detail.value
+    })
+  },
+  //show img
+  showUserImg:function(e){
+    let userId = e.currentTarget.dataset.id;
+    let rankTime = this.data.date;
+    let data = { userId: userId, rankTime: rankTime};
+    app.utils.wxpost("punchclock/getPunchClockByTarget", data, res => {
+      if (res.code == '10000') {
+        if (res.result.length > 0){
+          wx.previewImage({
+            urls: res.result
+          })
+        }else{
+          app.utils.showError("没有打卡图哟");
+        }
+
+      } 
+    })
+  },
+  //bind rank user
+  bindUserChange:function(e){
+    let id = e.currentTarget.dataset.id;
+    let userId = this.data.userList[e.detail.value].id;
+    let rateProgress = this.data.userList[e.detail.value].rateProgress;
+    let targetDays = this.data.userList[e.detail.value].targetDays;
+    let data = { id: id, userId: userId, rateProgress: rateProgress, targetDays: targetDays}
+    app.utils.wxpost("punchrank/updatePunchRank", data, res => {
+      if (res.code == '10000') {
+        this.queryRank();
+
+      } else {
+        app.utils.showError(res.message);
+      }
+    })
+  },
+  //unbind rank user
+  unbindUser:function(e){
+    let id = e.currentTarget.dataset.id;
+    let userId = "";
+    let data = { id: id, userId: userId}
+    app.utils.wxpost("punchrank/updatePunchRank", data, res => {
+      if (res.code == '10000') {
+        this.queryRank();
+
+      } else {
+        app.utils.showError(res.message);
+      }
     })
   }
 })

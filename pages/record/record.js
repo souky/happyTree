@@ -14,6 +14,7 @@ Page({
     pageSize:10,
     pageTotal:1,
     punchList:[],
+    showEndMessage:false
   },
 
   /**
@@ -33,7 +34,12 @@ Page({
     let isLeave = this.data.catalogSelect;
     let data = { isLeave: isLeave, pageNum: pageNum, pageSize: pageSize}
     app.utils.wxpost("punchclock/queryPunchClocks",data,res =>{
-      
+      if(res.result.total == 0){
+        this.setData({
+          showEndMessage:true
+        })
+        return;
+      }
       if (res.result.total > 5){
         this.setData({
           scrolly:true
@@ -54,6 +60,7 @@ Page({
         pageNum: res.result.pageNum,
         pageSize: res.result.pageSize,
         pageTotal: res.result.pages,
+        showEndMessage: false
       })
     })
   },

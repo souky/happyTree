@@ -6,7 +6,7 @@
       <view class='img' bindtap='tapFind' data-id='{{e.id}}'>
         <image src='{{e.userImg}}'></image>
       </view>
-      <view class='names normal_font ac {{e.active}}'>{{e.user.realName == ''?e.user.userName:e.user.realName}}</view>
+      <view class='names normal_font ac {{e.active}}'>{{e.realName == ''?e.userName:e.realName}}</view>
     </view>
 
     

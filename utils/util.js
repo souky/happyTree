@@ -22,8 +22,8 @@ const validateTel = data =>{
   return reg.test(data);
 }
 
-//const basePath = 'https://happytree.soukys.com/';
-const basePath = 'http://192.168.1.89:8080/happyTree/';
+const basePath = 'https://happytree.soukys.com/';
+//const basePath = 'http://192.168.1.89:8080/happyTree/';
 
 function wxUpload(url, data,path, success){
   let app = getApp()

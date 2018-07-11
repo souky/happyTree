@@ -1,4 +1,7 @@
 /* pages/rank/rank.wxss */
+#rank{
+  height: 100vh;
+}
 #rank .rank_query{
   width: 94%;
   height:100rpx;
@@ -69,11 +72,13 @@
 #rank .uesr_list{
   width:94%;
   margin: 20rpx auto;
+  height:calc(100vh - 320rpx);
 }
 #rank .uesr_list .context{
   position: relative;
   border-radius: 4px;
   overflow: hidden;
+  margin:20rpx auto;
 }
 #rank .uesr_list .items{
   display: flex;
@@ -89,6 +94,7 @@
   height: 100rpx;
   border-radius:50%;
   overflow: hidden;
+  margin-left:20rpx;
 }
 #rank .uesr_list .items .left_part image{
   width: 100rpx;
@@ -115,11 +121,11 @@
 #rank .uesr_list .items .right_part .setting_rank{
   width: 60rpx;
   height: 100rpx;
-  line-height: 100rpx;
   text-align: center;
 }
 #rank .uesr_list .items .right_part .setting_rank image{
   width:40rpx;
   height:40rpx;
+  margin-top:30rpx;
 
 }
