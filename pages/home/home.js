@@ -23,7 +23,7 @@ Page({
       let list = res.result;
       
       for(let x in list){
-        if(list[x].user.userName == undefined){
+        if (list[x].user == undefined || list[x].user.userName == undefined){
           list[x].em = true;
         }else{
           list[x].em = false;
